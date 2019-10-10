@@ -11,7 +11,7 @@ fn get_rust_posts(
 ) -> impl Future<Item = String, Error = reqwest::Error> {
     client
         .get("http://www.reddit.com/r/rust.json")
-        .send() // send http request
+        .send()
         .and_then(|resp| resp.text())
         .map_err(|err| {
             println!("Error in get rust posts: {}", err);
